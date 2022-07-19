@@ -7,5 +7,5 @@ void ssd1306_hal_i2c_write(uint8_t addr,
     /**
      * Implement your function here!
      */
-    #error function ssd1306_hal_i2c_write not implemented
+    #error function ssd1306_hal_i2c_write is not implemented!
 }
