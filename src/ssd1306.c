@@ -31,7 +31,7 @@
  *         |6|
  *         |7|
  *
- * Therefore, there are 8 row, 128 col in totol
+ * Therefore, there are 8 row, 128 col in total
  *
  * -----------------------------------------------
  *
@@ -70,12 +70,12 @@ void ssd1306_init() {
 }
 
 /**
- * @brief turn on/off display
+ * @brief turn on/off the screen
  * @param state
- * | 1 = display on
- * | 0 = display off
+ * | 1 = on
+ * | 0 = off
  */
-void ssd1306_set_display(uint8_t state) {
+void ssd1306_turn_on_off(uint8_t state) {
     if (state) {
         ssd1306_hal_i2c_write(SSD1306, COMD, (uint8_t[]){0xAF}, 1);
     } else {
@@ -86,7 +86,7 @@ void ssd1306_set_display(uint8_t state) {
 /**
  * @brief push buffer to GDDRAM to display it
  */
-void ssd1306_commit_buffer() {
+void ssd1306_show() {
     ssd1306_hal_i2c_write(SSD1306, DATA, buffer, 1024);
 }
 
