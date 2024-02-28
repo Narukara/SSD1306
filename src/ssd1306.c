@@ -143,6 +143,9 @@ void ssd1306_draw_char(uint8_t row,
 void ssd1306_print(char* str, uint16_t offset) {
     for (char* p = str; *p != 0; p++) {
         ssd1306_draw_char(2, 8, ascii_font_2x8[(*p) - 32], offset);
-        offset += 8;
+        uint16_t temp = offset + 8;
+        if (temp / 128 - offset / 128)
+            temp += 128;
+        offset = temp;
     }
 }
